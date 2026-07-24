@@ -15,68 +15,125 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				font-family: var(--font-mono);
+				font-size: 0.85rem;
+				margin-bottom: 1.5rem;
+				color: var(--text-muted);
 			}
+
+			.back-link:hover {
+				color: var(--accent);
+			}
+
+			article {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
 			.hero-image {
 				width: 100%;
+				max-height: 400px;
+				overflow: hidden;
+				border-radius: 8px;
+				border: 1px solid var(--border);
+				margin-bottom: 2rem;
+				background: var(--code-bg);
 			}
+
 			.hero-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				border: none;
+				border-radius: 0;
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+
+			.post-header {
+				margin-bottom: 2.5rem;
+				border-bottom: 1px solid var(--border);
+				padding-bottom: 1.5rem;
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+
+			.post-header h1 {
+				font-size: 2.3rem;
+				margin-bottom: 0.75rem;
+				line-height: 1.25;
 			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
+
+			.post-date {
+				font-family: var(--font-mono);
+				font-size: 0.85rem;
+				color: var(--accent);
+				display: flex;
+				gap: 1rem;
+				align-items: center;
 			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
+
+			.last-updated {
+				color: var(--text-muted);
 				font-style: italic;
+			}
+
+			.prose {
+				font-size: 1.05rem;
+				line-height: 1.7;
+			}
+
+			.prose :global(p) {
+				margin-bottom: 1.5rem;
+			}
+
+			.prose :global(h2) {
+				font-size: 1.5rem;
+				margin-top: 2.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.prose :global(h3) {
+				font-size: 1.25rem;
+				margin-top: 2rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.prose :global(ul), .prose :global(ol) {
+				margin-bottom: 1.5rem;
+				padding-left: 1.5rem;
+			}
+
+			.prose :global(li) {
+				margin-bottom: 0.5rem;
 			}
 		</style>
 	</head>
 
-	<body>
+	<body id="top">
 		<Header />
 		<main>
+			<a href="/blog" class="back-link">&larr; Back to all posts</a>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+				{heroImage && (
+					<div class="hero-image">
+						<Image width={1020} height={510} src={heroImage} alt={title} />
 					</div>
+				)}
+				<header class="post-header">
+					<h1>{title}</h1>
+					<div class="post-date">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<span class="last-updated">
+									(Updated <FormattedDate date={updatedDate} />)
+								</span>
+							)
+						}
+					</div>
+				</header>
+				<div class="prose">
 					<slot />
 				</div>
 			</article>

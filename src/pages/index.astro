@@ -1,48 +1,223 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${SITE_TITLE} | Systems, Compute & Automation`} description={SITE_DESCRIPTION} />
+		<style>
+			.hero {
+				padding: 1rem 0 2rem 0;
+				border-bottom: 1px solid var(--border);
+				margin-bottom: 2.5rem;
+			}
+
+			.hero-title {
+				font-size: 2.4rem;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.5rem;
+				color: var(--heading);
+				text-shadow: var(--text-glow-heading);
+			}
+
+			.hero-subtitle {
+				font-family: var(--font-mono);
+				color: var(--accent);
+				font-size: 0.95rem;
+				text-shadow: var(--text-glow-accent);
+			}
+
+			section {
+				margin-bottom: 3rem;
+			}
+
+			.section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				margin-bottom: 1.25rem;
+			}
+
+			.section-header h2 {
+				margin: 0;
+			}
+
+			.view-all {
+				font-family: var(--font-mono);
+				font-size: 0.85rem;
+			}
+
+			.blog-preview-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 1.25rem;
+			}
+
+			.post-card {
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				padding: 1.25rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+			}
+
+			.post-card:hover {
+				border-color: var(--border-hover);
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+				text-decoration: none;
+			}
+
+			.post-card h3 {
+				color: var(--heading);
+				font-size: 1.1rem;
+				margin: 0 0 0.5rem 0;
+				font-family: var(--font-sans);
+			}
+
+			.post-card p {
+				font-size: 0.88rem;
+				color: var(--text-muted);
+				margin-bottom: 1rem;
+				line-height: 1.5;
+			}
+
+			.post-meta {
+				font-family: var(--font-mono);
+				font-size: 0.78rem;
+				color: var(--accent);
+			}
+		</style>
 	</head>
-	<body>
+	<body id="top">
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<div class="hero">
+				<h1 class="hero-title">Samuel L. Meyers</h1>
+				<div class="hero-subtitle">Software Engineer // Low-Level Systems, Local AI &amp; High-Throughput Runtimes</div>
+			</div>
+
+			<section>
+				<h2>Core Execution</h2>
+				<p>
+					Software Engineer (BS in Computer Science, based in Branson MO) focused on low-level systems programming, local inference architecture, and single-binary software distribution. Building autonomous agent supervisors, realtime agent-human communication platforms, and high-performance event pipelines.
+				</p>
+			</section>
+
+			<section>
+				<h2>Active Projects &amp; Systems</h2>
+				<div class="grid">
+					<div class="card">
+						<h3>ClickClack (clickclack.chat)</h3>
+						<p>Realtime team chat built for OpenClaw agents &amp; humans. Single Go binary with embedded SQLite, FTS5 search, Svelte SPA, WebSockets event log, and TypeScript SDK.</p>
+						<div class="tag-container">
+							<span class="tag">Go</span>
+							<span class="tag">SQLite</span>
+							<span class="tag">Svelte</span>
+							<span class="tag">WebSockets</span>
+							<span class="tag">TypeScript</span>
+						</div>
+					</div>
+
+					<div class="card">
+						<h3>Overkill Agent Supervisor</h3>
+						<p>Autonomous agent framework &amp; process supervisor. State-tracking runtimes, custom Model Context Protocol (MCP) integrations, sandbox isolation, and hot-reloading Go services.</p>
+						<div class="tag-container">
+							<span class="tag">Go</span>
+							<span class="tag">Python</span>
+							<span class="tag">MCP</span>
+							<span class="tag">Sandbox</span>
+							<span class="tag">LLM</span>
+						</div>
+					</div>
+
+					<div class="card">
+						<h3>CryptoScope Data Pipeline</h3>
+						<p>High-throughput market observation and ticker calculations using Protobuf event streaming, time-series SQL storage, and bare-metal performance monitoring.</p>
+						<div class="tag-container">
+							<span class="tag">Protobuf</span>
+							<span class="tag">Go</span>
+							<span class="tag">SQL</span>
+							<span class="tag">gRPC</span>
+						</div>
+					</div>
+
+					<div class="card">
+						<h3>Retro Audio &amp; Vector Engines</h3>
+						<p>Hardware-inspired simulations including SynthJS (Web Audio API procedural synthesizer) and Hunt the Wumpus (3D vector canvas engine with retro CRT shaders).</p>
+						<div class="tag-container">
+							<span class="tag">Web Audio API</span>
+							<span class="tag">Canvas 2D</span>
+							<span class="tag">Vite</span>
+							<span class="tag">JavaScript</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{posts.length > 0 && (
+				<section>
+					<div class="section-header">
+						<h2>Recent Writings</h2>
+						<a href="/blog" class="view-all">View all posts &rarr;</a>
+					</div>
+					<div class="blog-preview-grid">
+						{posts.map((post) => (
+							<a href={`/blog/${post.id}/`} class="post-card">
+								<div>
+									<h3>{post.data.title}</h3>
+									<p>{post.data.description}</p>
+								</div>
+								<div class="post-meta">
+									<FormattedDate date={post.data.pubDate} />
+								</div>
+							</a>
+						))}
+					</div>
+				</section>
+			)}
+
+			<section>
+				<h2>Architecture Ethos</h2>
+				<blockquote>
+					"Keep the runtime local, cut out the middle-man APIs, and eliminate brittle cloud dependencies. If a system can't run deterministic logic under stress on local hardware, it's useless."
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>System Telemetry</h2>
+				<div class="status-box">
+					<div class="status-line">
+						<span class="label">NODE_ENV:</span>
+						<span class="val">ACTIVE</span>
+					</div>
+					<div class="status-line">
+						<span class="label">PRIMARY_SYSTEMS:</span>
+						<span class="val">CLICKCLACK // OVERKILL // CRYPTOSCOPE</span>
+					</div>
+					<div class="status-line">
+						<span class="label">LOCATION:</span>
+						<span class="val">Branson, MO</span>
+					</div>
+					<div class="status-line">
+						<span class="label">RESEARCH_FOCUS:</span>
+						<span class="val">AGENT_STABILITY_&amp;_SINGLE_BINARY_RUNTIMES</span>
+					</div>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
