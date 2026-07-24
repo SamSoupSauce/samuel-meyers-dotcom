@@ -1,63 +1,78 @@
-# Astro Starter Kit: Blog
+# ⚡ Samuel L. Meyers (samuel-meyers.com)
 
-```sh
-npm create astro@latest -- --template blog
-```
+> Personal site, systems telemetry dashboard, and engineering blog for **Samuel L. Meyers** ([@SamSoupSauce](https://github.com/SamSoupSauce)).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Live Site: **[samuel-meyers.com](https://samuel-meyers.com)**
 
-Features:
+---
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## 🚀 Overview
 
-## 🚀 Project Structure
+Built lean with [Astro 5](https://astro.build), this personal platform presents low-level systems projects, local AI architecture, single-binary tools, and raw AI agent status reports.
 
-Inside of your Astro project, you'll see the following folders and files:
+### Key Features
+* **Dark Engineering Theme:** Custom palette (`#0d0f12`, `#161920`, `#4f80ff`) with ambient text glows (`--text-glow-heading`, `--text-glow-accent`, `--text-glow-green`).
+* **AI Telemetry & System Reports:** Raw agent status reports authored by **Antigravity** (Google DeepMind AI agent) auditing real codebases (**ClickClack**, **Overkill**, **CryptoScope**, **SynthJS & Hunt the Wumpus**).
+* **Typography:** Pre-connected **JetBrains Mono** & **Inter** font stack.
+* **Navigation Shell:** Sticky glassmorphism header with active route detection, RSS feed (`/rss.xml`), and GitHub link (`@SamSoupSauce`).
+* **Zero Boilerplate:** Cleaned with extreme prejudice — 0% filler text, 100% custom content.
+
+---
+
+## 🛠️ Project Structure
 
 ```text
-├── public/
+├── public/                 # Static assets & favicons
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── assets/             # Hero images & fonts
+│   ├── components/         # Header, HeaderLink, Footer, BaseHead, FormattedDate
+│   ├── content/
+│   │   └── blog/           # AI Telemetry status report markdown files
+│   ├── layouts/            # BlogPost layout component
+│   ├── pages/              # index.astro, about.astro, blog/index.astro, rss.xml.js
+│   ├── styles/             # global.css (design system tokens & text glows)
+│   └── consts.ts           # Global site title & description constants
+├── astro.config.mjs        # Astro configuration & site metadata
+├── CHANGELOG.md            # Version & overhaul changelog
+└── package.json            # Dependencies & scripts
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🧞 Local Development
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Manage background dev server as specified in project workflows:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+# Install dependencies
+npm install
 
-## 🧞 Commands
+# Run dev server in background mode
+astro dev --background
 
-All commands are run from the root of the project, from a terminal:
+# Server controls
+astro dev status      # Check server status
+astro dev logs        # Tail dev server logs
+astro dev stop        # Stop background dev server
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+# Static Production Build
+npm run build         # Compiles static site to ./dist/
+```
 
-## 👀 Want to learn more?
+---
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📊 Highlighted Projects Featured
 
-## Credit
+* **💬 ClickClack ([clickclack.chat](https://clickclack.chat)):** Single-binary Go + Svelte SPA realtime team chat for OpenClaw agents & humans with SQLite (WAL & FTS5) and WebSockets cursor recovery.
+* **🤖 Overkill Agent Supervisor:** Autonomous agent supervisor with sandbox isolation (`sandbox.sh`), Model Context Protocol (`mcp.json`), and hot-reloading Go binaries.
+* **📊 CryptoScope Data Pipeline:** Binary Protocol Buffers (`batch.proto`) event streaming, time-series SQL observers, and high-frequency calculation.
+* **🕹️ Retro Audio & Vector Engines:** SynthJS Web Audio API procedural synthesis and Hunt the Wumpus 3D vector canvas engine with CRT phosphor shaders.
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+---
+
+## 📄 License & Contact
+
+* **Developer:** Samuel L. Meyers (Sam / `mrovkill`)
+* **Email:** [sam@samuel-meyers.com](mailto:sam@samuel-meyers.com)
+* **GitHub:** [@SamSoupSauce](https://github.com/SamSoupSauce)
+* **License:** [MIT](LICENSE)
