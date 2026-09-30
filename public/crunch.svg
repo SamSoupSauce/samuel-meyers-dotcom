@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="47%" r="68%">
+      <stop offset="0%" stop-color="#0e1626" />
+      <stop offset="42%" stop-color="#080d16" />
+      <stop offset="85%" stop-color="#04060a" />
+      <stop offset="100%" stop-color="#010204" />
+    </radialGradient>
+
+    <!-- Ambient Energy Filters -->
+    <filter id="blueGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur1" />
+      <feGaussianBlur stdDeviation="14" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="redGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur1" />
+      <feGaussianBlur stdDeviation="14" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="boardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.85" />
+    </filter>
+
+    <filter id="crunchBurst" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Player 1 & 2 Disc Gradients -->
+    <radialGradient id="p1Grad" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#7dd3fc" />
+      <stop offset="60%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </radialGradient>
+
+    <radialGradient id="p2Grad" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fda4af" />
+      <stop offset="60%" stop-color="#e11d48" />
+      <stop offset="100%" stop-color="#be123c" />
+    </radialGradient>
+  </defs>
+
+  <!-- Deep Obsidian Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)" />
+
+  <!-- Inset Border with Cyber Ticks -->
+  <rect x="18" y="18" width="764" height="464" rx="12" fill="none" stroke="#1e293b" stroke-width="1.2" opacity="0.45" />
+  <rect x="22" y="22" width="756" height="456" rx="10" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.2" stroke-dasharray="8 6" />
+
+  <!-- Perspective Floor Grid Rays -->
+  <g opacity="0.15" stroke="#334155" stroke-width="1">
+    <line x1="80" y1="500" x2="400" y2="340" />
+    <line x1="220" y1="500" x2="400" y2="340" />
+    <line x1="580" y1="500" x2="400" y2="340" />
+    <line x1="720" y1="500" x2="400" y2="340" />
+    <line x1="0" y1="410" x2="800" y2="410" stroke-dasharray="4 6" />
+    <line x1="0" y1="455" x2="800" y2="455" />
+  </g>
+
+  <!-- Ambient Board Glow -->
+  <circle cx="400" cy="245" r="170" fill="#0284c7" opacity="0.10" filter="url(#blueGlow)" />
+  <circle cx="400" cy="245" r="110" fill="#f43f5e" opacity="0.09" filter="url(#redGlow)" />
+
+  <!-- Board Container with Drop Shadow -->
+  <g filter="url(#boardShadow)">
+    
+    <!-- 61 Hexagonal Tiles -->
+    <g id="hex-grid">
+            <polygon points="338.95,117.75 320.33,128.50 301.71,117.75 301.71,96.25 320.33,85.50 338.95,96.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="378.78,117.75 360.16,128.50 341.54,117.75 341.54,96.25 360.16,85.50 378.78,96.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="418.62,117.75 400.00,128.50 381.38,117.75 381.38,96.25 400.00,85.50 418.62,96.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="458.46,117.75 439.84,128.50 421.22,117.75 421.22,96.25 439.84,85.50 458.46,96.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="498.29,117.75 479.67,128.50 461.05,117.75 461.05,96.25 479.67,85.50 498.29,96.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="319.03,152.25 300.41,163.00 281.79,152.25 281.79,130.75 300.41,120.00 319.03,130.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="358.86,152.25 340.24,163.00 321.62,152.25 321.62,130.75 340.24,120.00 358.86,130.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="398.70,152.25 380.08,163.00 361.46,152.25 361.46,130.75 380.08,120.00 398.70,130.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="438.54,152.25 419.92,163.00 401.30,152.25 401.30,130.75 419.92,120.00 438.54,130.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="478.38,152.25 459.76,163.00 441.14,152.25 441.14,130.75 459.76,120.00 478.38,130.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="518.21,152.25 499.59,163.00 480.97,152.25 480.97,130.75 499.59,120.00 518.21,130.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="299.11,186.75 280.49,197.50 261.87,186.75 261.87,165.25 280.49,154.50 299.11,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="338.95,186.75 320.33,197.50 301.71,186.75 301.71,165.25 320.33,154.50 338.95,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="378.78,186.75 360.16,197.50 341.54,186.75 341.54,165.25 360.16,154.50 378.78,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="418.62,186.75 400.00,197.50 381.38,186.75 381.38,165.25 400.00,154.50 418.62,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="458.46,186.75 439.84,197.50 421.22,186.75 421.22,165.25 439.84,154.50 458.46,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="498.29,186.75 479.67,197.50 461.05,186.75 461.05,165.25 479.67,154.50 498.29,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="538.13,186.75 519.51,197.50 500.89,186.75 500.89,165.25 519.51,154.50 538.13,165.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="279.19,221.25 260.57,232.00 241.95,221.25 241.95,199.75 260.57,189.00 279.19,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="319.03,221.25 300.41,232.00 281.79,221.25 281.79,199.75 300.41,189.00 319.03,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="358.86,221.25 340.24,232.00 321.62,221.25 321.62,199.75 340.24,189.00 358.86,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="398.70,221.25 380.08,232.00 361.46,221.25 361.46,199.75 380.08,189.00 398.70,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="438.54,221.25 419.92,232.00 401.30,221.25 401.30,199.75 419.92,189.00 438.54,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="478.38,221.25 459.76,232.00 441.14,221.25 441.14,199.75 459.76,189.00 478.38,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="518.21,221.25 499.59,232.00 480.97,221.25 480.97,199.75 499.59,189.00 518.21,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="558.05,221.25 539.43,232.00 520.81,221.25 520.81,199.75 539.43,189.00 558.05,199.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="259.27,255.75 240.65,266.50 222.03,255.75 222.03,234.25 240.65,223.50 259.27,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="299.11,255.75 280.49,266.50 261.87,255.75 261.87,234.25 280.49,223.50 299.11,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="338.95,255.75 320.33,266.50 301.71,255.75 301.71,234.25 320.33,223.50 338.95,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="378.78,255.75 360.16,266.50 341.54,255.75 341.54,234.25 360.16,223.50 378.78,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="418.62,255.75 400.00,266.50 381.38,255.75 381.38,234.25 400.00,223.50 418.62,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="458.46,255.75 439.84,266.50 421.22,255.75 421.22,234.25 439.84,223.50 458.46,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="498.29,255.75 479.67,266.50 461.05,255.75 461.05,234.25 479.67,223.50 498.29,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="538.13,255.75 519.51,266.50 500.89,255.75 500.89,234.25 519.51,223.50 538.13,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="577.97,255.75 559.35,266.50 540.73,255.75 540.73,234.25 559.35,223.50 577.97,234.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="279.19,290.25 260.57,301.00 241.95,290.25 241.95,268.75 260.57,258.00 279.19,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="319.03,290.25 300.41,301.00 281.79,290.25 281.79,268.75 300.41,258.00 319.03,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="358.86,290.25 340.24,301.00 321.62,290.25 321.62,268.75 340.24,258.00 358.86,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="398.70,290.25 380.08,301.00 361.46,290.25 361.46,268.75 380.08,258.00 398.70,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="438.54,290.25 419.92,301.00 401.30,290.25 401.30,268.75 419.92,258.00 438.54,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="478.38,290.25 459.76,301.00 441.14,290.25 441.14,268.75 459.76,258.00 478.38,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="518.21,290.25 499.59,301.00 480.97,290.25 480.97,268.75 499.59,258.00 518.21,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="558.05,290.25 539.43,301.00 520.81,290.25 520.81,268.75 539.43,258.00 558.05,268.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="299.11,324.75 280.49,335.50 261.87,324.75 261.87,303.25 280.49,292.50 299.11,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="338.95,324.75 320.33,335.50 301.71,324.75 301.71,303.25 320.33,292.50 338.95,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="378.78,324.75 360.16,335.50 341.54,324.75 341.54,303.25 360.16,292.50 378.78,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="418.62,324.75 400.00,335.50 381.38,324.75 381.38,303.25 400.00,292.50 418.62,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="458.46,324.75 439.84,335.50 421.22,324.75 421.22,303.25 439.84,292.50 458.46,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="498.29,324.75 479.67,335.50 461.05,324.75 461.05,303.25 479.67,292.50 498.29,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="538.13,324.75 519.51,335.50 500.89,324.75 500.89,303.25 519.51,292.50 538.13,303.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="319.03,359.25 300.41,370.00 281.79,359.25 281.79,337.75 300.41,327.00 319.03,337.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="358.86,359.25 340.24,370.00 321.62,359.25 321.62,337.75 340.24,327.00 358.86,337.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="398.70,359.25 380.08,370.00 361.46,359.25 361.46,337.75 380.08,327.00 398.70,337.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="438.54,359.25 419.92,370.00 401.30,359.25 401.30,337.75 419.92,327.00 438.54,337.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="478.38,359.25 459.76,370.00 441.14,359.25 441.14,337.75 459.76,327.00 478.38,337.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="518.21,359.25 499.59,370.00 480.97,359.25 480.97,337.75 499.59,327.00 518.21,337.75" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="338.95,393.75 320.33,404.50 301.71,393.75 301.71,372.25 320.33,361.50 338.95,372.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="378.78,393.75 360.16,404.50 341.54,393.75 341.54,372.25 360.16,361.50 378.78,372.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="418.62,393.75 400.00,404.50 381.38,393.75 381.38,372.25 400.00,361.50 418.62,372.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="458.46,393.75 439.84,404.50 421.22,393.75 421.22,372.25 439.84,361.50 458.46,372.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+      <polygon points="498.29,393.75 479.67,404.50 461.05,393.75 461.05,372.25 479.67,361.50 498.29,372.25" fill="#0d1322" stroke="#1e293b" stroke-width="1.5" />
+    </g>
+
+    <!-- Subtle Perimeter Accent on Edge Hexes -->
+    <g stroke="#38bdf8" stroke-width="1" opacity="0.25" fill="none">
+            <polygon points="338.95,117.75 320.33,128.50 301.71,117.75 301.71,96.25 320.33,85.50 338.95,96.25" />
+      <polygon points="378.78,117.75 360.16,128.50 341.54,117.75 341.54,96.25 360.16,85.50 378.78,96.25" />
+      <polygon points="418.62,117.75 400.00,128.50 381.38,117.75 381.38,96.25 400.00,85.50 418.62,96.25" />
+      <polygon points="458.46,117.75 439.84,128.50 421.22,117.75 421.22,96.25 439.84,85.50 458.46,96.25" />
+      <polygon points="498.29,117.75 479.67,128.50 461.05,117.75 461.05,96.25 479.67,85.50 498.29,96.25" />
+      <polygon points="319.03,152.25 300.41,163.00 281.79,152.25 281.79,130.75 300.41,120.00 319.03,130.75" />
+      <polygon points="299.11,186.75 280.49,197.50 261.87,186.75 261.87,165.25 280.49,154.50 299.11,165.25" />
+      <polygon points="279.19,221.25 260.57,232.00 241.95,221.25 241.95,199.75 260.57,189.00 279.19,199.75" />
+      <polygon points="259.27,255.75 240.65,266.50 222.03,255.75 222.03,234.25 240.65,223.50 259.27,234.25" />
+      <polygon points="279.19,290.25 260.57,301.00 241.95,290.25 241.95,268.75 260.57,258.00 279.19,268.75" />
+      <polygon points="299.11,324.75 280.49,335.50 261.87,324.75 261.87,303.25 280.49,292.50 299.11,303.25" />
+      <polygon points="319.03,359.25 300.41,370.00 281.79,359.25 281.79,337.75 300.41,327.00 319.03,337.75" />
+      <polygon points="338.95,393.75 320.33,404.50 301.71,393.75 301.71,372.25 320.33,361.50 338.95,372.25" />
+      <polygon points="378.78,393.75 360.16,404.50 341.54,393.75 341.54,372.25 360.16,361.50 378.78,372.25" />
+      <polygon points="418.62,393.75 400.00,404.50 381.38,393.75 381.38,372.25 400.00,361.50 418.62,372.25" />
+      <polygon points="458.46,393.75 439.84,404.50 421.22,393.75 421.22,372.25 439.84,361.50 458.46,372.25" />
+      <polygon points="498.29,393.75 479.67,404.50 461.05,393.75 461.05,372.25 479.67,361.50 498.29,372.25" />
+    </g>
+
+    <!-- Kinetic Trajectory / Push Action Beam (P1 pushing Rock into opponent zone) -->
+    <g opacity="0.85">
+      <path d="M 400 314 L 380 279.5" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="4 3" />
+      <polygon points="378,274 385,283 374,284" fill="#38bdf8" />
+
+      <!-- Impact Flash / Crunch Collision Shockwave -->
+      <circle cx="380" cy="279.5" r="19" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.8" />
+      <circle cx="380" cy="279.5" r="14" fill="#f59e0b" fill-opacity="0.18" filter="url(#crunchBurst)" />
+    </g>
+
+    <!-- Red Rock Pieces (8) -->
+    <g id="red-rocks">
+            <path d="M 419.92 130.00 L 429.92 138.00 L 429.92 152.00 L 409.92 152.00 L 409.92 138.00 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="419.92" y="146.00" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 459.76 130.00 L 469.76 138.00 L 469.76 152.00 L 449.76 152.00 L 449.76 138.00 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="459.76" y="146.00" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 320.33 164.50 L 330.33 172.50 L 330.33 186.50 L 310.33 186.50 L 310.33 172.50 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="320.33" y="180.50" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 400.00 164.50 L 410.00 172.50 L 410.00 186.50 L 390.00 186.50 L 390.00 172.50 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="400.00" y="180.50" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 479.67 164.50 L 489.67 172.50 L 489.67 186.50 L 469.67 186.50 L 469.67 172.50 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="479.67" y="180.50" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 300.41 199.00 L 310.41 207.00 L 310.41 221.00 L 290.41 221.00 L 290.41 207.00 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="300.41" y="215.00" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 499.59 199.00 L 509.59 207.00 L 509.59 221.00 L 489.59 221.00 L 489.59 207.00 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="499.59" y="215.00" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 340.24 130.00 L 350.24 138.00 L 350.24 152.00 L 330.24 152.00 L 330.24 138.00 Z" fill="#1e1018" stroke="#f43f5e" stroke-width="1.8" />
+      <text x="340.24" y="146.00" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+    </g>
+
+    <!-- Blue Rock Pieces (8) -->
+    <g id="blue-rocks">
+            <path d="M 280.49 233.50 L 290.49 241.50 L 290.49 255.50 L 270.49 255.50 L 270.49 241.50 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="280.49" y="249.50" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 519.51 233.50 L 529.51 241.50 L 529.51 255.50 L 509.51 255.50 L 509.51 241.50 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="519.51" y="249.50" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 300.41 268.00 L 310.41 276.00 L 310.41 290.00 L 290.41 290.00 L 290.41 276.00 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="300.41" y="284.00" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 380.08 268.00 L 390.08 276.00 L 390.08 290.00 L 370.08 290.00 L 370.08 276.00 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="380.08" y="284.00" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 499.59 268.00 L 509.59 276.00 L 509.59 290.00 L 489.59 290.00 L 489.59 276.00 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="499.59" y="284.00" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 320.33 302.50 L 330.33 310.50 L 330.33 324.50 L 310.33 324.50 L 310.33 310.50 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="320.33" y="318.50" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 479.67 302.50 L 489.67 310.50 L 489.67 324.50 L 469.67 324.50 L 469.67 310.50 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="479.67" y="318.50" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+      <path d="M 380.08 337.00 L 390.08 345.00 L 390.08 359.00 L 370.08 359.00 L 370.08 345.00 Z" fill="#0d1a29" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="380.08" y="353.00" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="12" font-weight="700" text-anchor="middle">R</text>
+    </g>
+
+    <!-- Player 2 Piece (Crimson / Rose Disc with Ring) -->
+    <g id="player-2" transform="translate(380.08, 141.50)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#f43f5e" stroke-width="2" opacity="0.5" />
+      <circle cx="0" cy="0" r="13.5" fill="url(#p2Grad)" stroke="#fda4af" stroke-width="1.5" filter="url(#redGlow)" />
+      <text x="0" y="4" fill="#ffffff" font-family="'Fira Code', ui-monospace, monospace" font-size="11" font-weight="800" text-anchor="middle">P2</text>
+    </g>
+
+    <!-- Player 1 Piece (Cyan / Blue Disc with Ring) -->
+    <g id="player-1" transform="translate(400.00, 314.00)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.5" />
+      <circle cx="0" cy="0" r="13.5" fill="url(#p1Grad)" stroke="#bae6fd" stroke-width="1.5" filter="url(#blueGlow)" />
+      <text x="0" y="4" fill="#ffffff" font-family="'Fira Code', ui-monospace, monospace" font-size="11" font-weight="800" text-anchor="middle">P1</text>
+    </g>
+
+  </g>
+
+  <!-- Kinetic Impact Floating Particle Embers -->
+  <g fill="#f59e0b" opacity="0.6">
+    <circle cx="365" cy="265" r="1.8" />
+    <circle cx="395" cy="268" r="1.4" />
+    <circle cx="372" cy="295" r="1.2" />
+    <circle cx="402" cy="292" r="1.6" />
+  </g>
+
+  <!-- Technical Telemetry Labels -->
+  <g font-family="'Fira Code', monospace" font-size="10.5" fill="#f59e0b" opacity="0.65" letter-spacing="1">
+    <text x="36" y="450">CRUNCH :: 61-SPACE HEXAGONAL GRID</text>
+    <text x="570" y="450">RULES: PUSH ROCKS // WIN BY CRUNCH</text>
+  </g>
+</svg>
