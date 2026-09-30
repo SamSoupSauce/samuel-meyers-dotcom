@@ -7,7 +7,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('announcements')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
@@ -15,7 +15,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Announcements | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
 			.page-header {
 				margin-bottom: 2.5rem;
@@ -123,6 +123,21 @@ const posts = (await getCollection('blog')).sort(
 				margin-top: auto;
 			}
 
+			.empty-state {
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				padding: 3rem 1.5rem;
+				text-align: center;
+			}
+
+			.empty-state p {
+				color: var(--text-muted);
+				font-family: var(--font-mono);
+				font-size: 0.95rem;
+				margin: 0;
+			}
+
 			@media (max-width: 600px) {
 				.post-list {
 					grid-template-columns: 1fr;
@@ -134,33 +149,43 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<div class="page-header">
-				<h1>Writing &amp; Technical Notes</h1>
-				<p>Thoughts on low-level systems, local inference, hardware automation, and software engineering.</p>
+				<h1>Announcements</h1>
+				<p>Updates, project releases, and technical notes from Samuel L. Meyers.</p>
 			</div>
 
 			<section>
-				<ul class="post-list">
-					{
-						posts.map((post) => (
-							<li class="post-item">
-								<a href={`/blog/${post.id}/`} class="post-link">
-									{post.data.heroImage && (
-										<div class="image-wrapper">
-											<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+				{
+					posts.length > 0 ? (
+						<ul class="post-list">
+							{posts.map((post) => (
+								<li class="post-item">
+									<a href={`/announcements/${post.id}/`} class="post-link">
+										{post.data.heroImage ? (
+											<div class="image-wrapper">
+												<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+											</div>
+										) : post.data.image?.url ? (
+											<div class="image-wrapper">
+												<img src={post.data.image.url} alt={post.data.image.alt || post.data.title} width={720} height={360} loading="lazy" decoding="async" />
+											</div>
+										) : null}
+										<div class="post-content">
+											<h2 class="post-title">{post.data.title}</h2>
+											<p class="post-description">{post.data.description}</p>
+											<div class="post-date">
+												<FormattedDate date={post.data.pubDate} />
+											</div>
 										</div>
-									)}
-									<div class="post-content">
-										<h2 class="post-title">{post.data.title}</h2>
-										<p class="post-description">{post.data.description}</p>
-										<div class="post-date">
-											<FormattedDate date={post.data.pubDate} />
-										</div>
-									</div>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+									</a>
+								</li>
+							))}
+						</ul>
+					) : (
+						<div class="empty-state">
+							<p>No announcements yet. New technical updates and project releases will be published here.</p>
+						</div>
+					)
+				}
 			</section>
 		</main>
 		<Footer />

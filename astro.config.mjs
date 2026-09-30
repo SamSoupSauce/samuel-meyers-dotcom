@@ -8,6 +8,10 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
 	site: 'https://samuel-meyers.com',
 	integrations: [mdx(), sitemap()],
+	redirects: {
+		'/blog': '/announcements',
+		'/blog/[...slug]': '/announcements/[...slug]',
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),

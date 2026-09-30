@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Rich Casino Table Felt Gradient -->
+    <radialGradient id="feltGrad" cx="50%" cy="48%" r="68%" fx="50%" fy="40%">
+      <stop offset="0%" stop-color="#1e7f49" />
+      <stop offset="38%" stop-color="#156639" />
+      <stop offset="72%" stop-color="#0c4223" />
+      <stop offset="100%" stop-color="#052413" />
+    </radialGradient>
+
+    <!-- Card Shadow for realistic table depth -->
+    <filter id="cardShadow" x="-30%" y="-20%" width="165%" height="165%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#02140a" flood-opacity="0.75" />
+    </filter>
+
+    <!-- Card Surface Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="85%" stop-color="#f8f9fb" />
+      <stop offset="100%" stop-color="#eceff3" />
+    </linearGradient>
+
+    <!-- Precise Vector Suit Geometries centered at (0,0) -->
+    <!-- Spade -->
+    <g id="spade">
+      <path d="M 0,-24 C -3,-20 -20,-3 -20,10 C -20,18 -13,24 -4,23 C -1.5,23 0,21.5 0,19.5 C 0,21.5 1.5,23 4,23 C 13,24 20,18 20,10 C 20,-3 3,-20 0,-24 Z" />
+      <path d="M -2.5,15 C -3.5,19 -6.5,24 -9.5,27 L 9.5,27 C 6.5,24 3.5,19 2.5,15 Z" />
+    </g>
+
+    <!-- Heart -->
+    <g id="heart">
+      <path d="M 0,-10 C -2.5,-16 -7.5,-23.5 -16,-23.5 C -24.5,-23.5 -28,-16.5 -28,-7.5 C -28,5.5 -16.5,16 0,28 C 16.5,16 28,5.5 28,-7.5 C 28,-16.5 24.5,-23.5 16,-23.5 C 7.5,-23.5 2.5,-16 0,-10 Z" />
+    </g>
+
+    <!-- Club -->
+    <g id="club">
+      <circle cx="0" cy="-12" r="11" />
+      <circle cx="-12.5" cy="5.5" r="11" />
+      <circle cx="12.5" cy="5.5" r="11" />
+      <circle cx="0" cy="0" r="7.5" />
+      <path d="M -2.5,5 C -3.5,13 -6.5,22 -9.5,27 L 9.5,27 C 6.5,22 3.5,13 2.5,5 Z" />
+    </g>
+
+    <!-- Diamond -->
+    <g id="diamond">
+      <path d="M 0,-26 L 19,0 L 0,26 L -19,0 Z" />
+    </g>
+  </defs>
+
+  <!-- Green Felt Casino Table Background -->
+  <rect width="800" height="500" fill="url(#feltGrad)" />
+
+  <!-- Table Inset Stitched Border -->
+  <rect x="22" y="22" width="756" height="456" rx="18" fill="none" stroke="#2ba862" stroke-width="1.8" stroke-dasharray="10 8" opacity="0.32" />
+  <rect x="28" y="28" width="744" height="444" rx="14" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.28" />
+
+  <!-- Symmetrical 3-Card Wing Composition: Left Card (Ace of Hearts), Right Card (Ace of Diamonds), Center (Ace of Spades on Top) -->
+  <g id="cards-hand">
+    <!-- Left Card: Ace of Hearts (tilt -18 deg) -->
+    <g transform="rotate(-18, 400, 480) translate(307, 90)">
+      <g filter="url(#cardShadow)">
+        <rect width="186" height="268" rx="13" ry="13" fill="url(#cardGrad)" stroke="#dcdfe4" stroke-width="1.5" />
+        <rect x="9" y="9" width="168" height="250" rx="8" ry="8" fill="none" stroke="rgba(217, 38, 38, 0.16)" stroke-width="1.2" />
+
+        <!-- Top-left Rank & Pip -->
+        <g transform="translate(22, 17)">
+          <text x="0" y="21" font-family="'Georgia', 'Times New Roman', serif" font-weight="bold" font-size="24" fill="#dc2626" text-anchor="middle">A</text>
+          <g transform="translate(0, 36) scale(0.48)">
+            <use href="#heart" fill="#dc2626" />
+          </g>
+        </g>
+
+        <!-- Center Pip -->
+        <g transform="translate(93, 134) scale(1.85)">
+          <use href="#heart" fill="#dc2626" />
+        </g>
+
+        <!-- Bottom Corners (Rotated 180) -->
+        <g transform="rotate(180, 93, 134)">
+          <g transform="translate(22, 17)">
+            <text x="0" y="21" font-family="'Georgia', 'Times New Roman', serif" font-weight="bold" font-size="24" fill="#dc2626" text-anchor="middle">A</text>
+            <g transform="translate(0, 36) scale(0.48)">
+              <use href="#heart" fill="#dc2626" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Card: Ace of Diamonds (tilt +18 deg) -->
+    <g transform="rotate(18, 400, 480) translate(307, 90)">
+      <g filter="url(#cardShadow)">
+        <rect width="186" height="268" rx="13" ry="13" fill="url(#cardGrad)" stroke="#dcdfe4" stroke-width="1.5" />
+        <rect x="9" y="9" width="168" height="250" rx="8" ry="8" fill="none" stroke="rgba(217, 38, 38, 0.16)" stroke-width="1.2" />
+
+        <!-- Top-right Rank & Pip (visible on wing) -->
+        <g transform="translate(164, 17)">
+          <text x="0" y="21" font-family="'Georgia', 'Times New Roman', serif" font-weight="bold" font-size="24" fill="#dc2626" text-anchor="middle">A</text>
+          <g transform="translate(0, 36) scale(0.48)">
+            <use href="#diamond" fill="#dc2626" />
+          </g>
+        </g>
+
+        <!-- Center Pip -->
+        <g transform="translate(93, 134) scale(1.85)">
+          <use href="#diamond" fill="#dc2626" />
+        </g>
+
+        <!-- Bottom-right Rank & Pip (Rotated 180) -->
+        <g transform="rotate(180, 93, 134)">
+          <g transform="translate(22, 17)">
+            <text x="0" y="21" font-family="'Georgia', 'Times New Roman', serif" font-weight="bold" font-size="24" fill="#dc2626" text-anchor="middle">A</text>
+            <g transform="translate(0, 36) scale(0.48)">
+              <use href="#diamond" fill="#dc2626" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- Center Card: Ace of Spades (Upright, on top!) -->
+    <g transform="translate(307, 90)">
+      <g filter="url(#cardShadow)">
+        <rect width="186" height="268" rx="13" ry="13" fill="url(#cardGrad)" stroke="#dcdfe4" stroke-width="1.5" />
+        <rect x="9" y="9" width="168" height="250" rx="8" ry="8" fill="none" stroke="rgba(15, 23, 42, 0.16)" stroke-width="1.2" />
+
+        <!-- Top-left Rank & Pip -->
+        <g transform="translate(22, 17)">
+          <text x="0" y="21" font-family="'Georgia', 'Times New Roman', serif" font-weight="bold" font-size="24" fill="#0f172a" text-anchor="middle">A</text>
+          <g transform="translate(0, 36) scale(0.48)">
+            <use href="#spade" fill="#0f172a" />
+          </g>
+        </g>
+
+        <!-- Center Ornate Ace of Spades Artwork -->
+        <g transform="translate(93, 134)">
+          <g transform="scale(2.3)">
+            <use href="#spade" fill="#0f172a" />
+          </g>
+          <!-- Ornate luxury inner engraving line -->
+          <path d="M 0,-18 C -2,-15 -14,-2 -14,8 C -14,13 -9,18 -3,17 C -1,17 0,16 0,14.5 C 0,16 1,17 3,17 C 9,18 14,13 14,8 C 14,-2 2,-15 0,-18 Z" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.85" />
+          <circle cx="0" cy="5" r="3" fill="#f8fafc" opacity="0.9" />
+        </g>
+
+        <!-- Bottom-right Rank & Pip (Rotated 180) -->
+        <g transform="rotate(180, 93, 134)">
+          <g transform="translate(22, 17)">
+            <text x="0" y="21" font-family="'Georgia', 'Times New Roman', serif" font-weight="bold" font-size="24" fill="#0f172a" text-anchor="middle">A</text>
+            <g transform="translate(0, 36) scale(0.48)">
+              <use href="#spade" fill="#0f172a" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

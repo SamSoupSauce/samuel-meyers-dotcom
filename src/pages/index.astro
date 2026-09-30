@@ -1,14 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
 ---
 
 <!doctype html>
@@ -41,64 +35,10 @@ const posts = (await getCollection('blog'))
 				margin-bottom: 3rem;
 			}
 
-			.section-header {
-				display: flex;
-				justify-content: space-between;
-				align-items: baseline;
-				margin-bottom: 1.25rem;
-			}
-
-			.section-header h2 {
-				margin: 0;
-			}
-
-			.view-all {
-				font-family: var(--font-mono);
-				font-size: 0.85rem;
-			}
-
-			.blog-preview-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-				gap: 1.25rem;
-			}
-
-			.post-card {
-				background: var(--card-bg);
-				border: 1px solid var(--border);
-				border-radius: 8px;
-				padding: 1.25rem;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-			}
-
-			.post-card:hover {
-				border-color: var(--border-hover);
-				transform: translateY(-2px);
-				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-				text-decoration: none;
-			}
-
-			.post-card h3 {
-				color: var(--heading);
+			.summary-lead {
 				font-size: 1.1rem;
-				margin: 0 0 0.5rem 0;
-				font-family: var(--font-sans);
-			}
-
-			.post-card p {
-				font-size: 0.88rem;
-				color: var(--text-muted);
-				margin-bottom: 1rem;
-				line-height: 1.5;
-			}
-
-			.post-meta {
-				font-family: var(--font-mono);
-				font-size: 0.78rem;
-				color: var(--accent);
+				line-height: 1.7;
+				color: var(--heading);
 			}
 		</style>
 	</head>
@@ -107,93 +47,44 @@ const posts = (await getCollection('blog'))
 		<main>
 			<div class="hero">
 				<h1 class="hero-title">Samuel L. Meyers</h1>
-				<div class="hero-subtitle">Software Engineer // Low-Level Systems, Local AI &amp; High-Throughput Runtimes</div>
+				<div class="hero-subtitle">Software Engineer // AI Models, Edge Inference &amp; Agricultural Automation</div>
 			</div>
 
-			<section>
-				<h2>Core Execution</h2>
+			<section class="summary-section">
+				<h2>Summary</h2>
+				<p class="summary-lead">
+					Software Engineer based in Springfield, MO, actively pursuing a Bachelor of Science in Artificial Intelligence. Dedicated to developing efficient, lightweight AI models and robust edge-computing systems engineered specifically for agricultural automation.
+				</p>
 				<p>
-					Software Engineer (BS in Computer Science, based in Branson MO) focused on low-level systems programming, local inference architecture, and single-binary software distribution. Building autonomous agent supervisors, realtime agent-human communication platforms, and high-performance event pipelines.
+					Specializing in low-level runtimes, resource-constrained model deployment, and real-time computer vision that operate reliably in demanding field conditions without depending on intermittent cloud infrastructure.
 				</p>
 			</section>
 
 			<section>
-				<h2>Active Projects &amp; Systems</h2>
+				<h2>Core Focus &amp; Objectives</h2>
+				<p>
+					Advancing practical machine learning where hardware constraints and field conditions demand extreme compute efficiency:
+				</p>
 				<div class="grid">
 					<div class="card">
-						<h3>ClickClack (clickclack.chat)</h3>
-						<p>Realtime team chat built for OpenClaw agents &amp; humans. Single Go binary with embedded SQLite, FTS5 search, Svelte SPA, WebSockets event log, and TypeScript SDK.</p>
-						<div class="tag-container">
-							<span class="tag">Go</span>
-							<span class="tag">SQLite</span>
-							<span class="tag">Svelte</span>
-							<span class="tag">WebSockets</span>
-							<span class="tag">TypeScript</span>
-						</div>
+						<h3>Agricultural Automation</h3>
+						<p>Engineering autonomous vision models and real-time decision algorithms for field operations, precision crop monitoring, weed detection, and robotic guidance.</p>
 					</div>
-
 					<div class="card">
-						<h3>Overkill Agent Supervisor</h3>
-						<p>Autonomous agent framework &amp; process supervisor. State-tracking runtimes, custom Model Context Protocol (MCP) integrations, sandbox isolation, and hot-reloading Go services.</p>
-						<div class="tag-container">
-							<span class="tag">Go</span>
-							<span class="tag">Python</span>
-							<span class="tag">MCP</span>
-							<span class="tag">Sandbox</span>
-							<span class="tag">LLM</span>
-						</div>
+						<h3>Efficient AI Architectures</h3>
+						<p>Researching model quantization, pruning, and streamlined neural network topologies designed to deliver high inference throughput on edge TPUs and low-power microcomputers.</p>
 					</div>
-
 					<div class="card">
-						<h3>CryptoScope Data Pipeline</h3>
-						<p>High-throughput market observation and ticker calculations using Protobuf event streaming, time-series SQL storage, and bare-metal performance monitoring.</p>
-						<div class="tag-container">
-							<span class="tag">Protobuf</span>
-							<span class="tag">Go</span>
-							<span class="tag">SQL</span>
-							<span class="tag">gRPC</span>
-						</div>
-					</div>
-
-					<div class="card">
-						<h3>Retro Audio &amp; Vector Engines</h3>
-						<p>Hardware-inspired simulations including SynthJS (Web Audio API procedural synthesizer) and Hunt the Wumpus (3D vector canvas engine with retro CRT shaders).</p>
-						<div class="tag-container">
-							<span class="tag">Web Audio API</span>
-							<span class="tag">Canvas 2D</span>
-							<span class="tag">Vite</span>
-							<span class="tag">JavaScript</span>
-						</div>
+						<h3>Resilient Edge Systems</h3>
+						<p>Designing self-contained, deterministic software runtimes and sensor pipelines capable of sustained autonomous execution under harsh, disconnected field environments.</p>
 					</div>
 				</div>
 			</section>
 
-			{posts.length > 0 && (
-				<section>
-					<div class="section-header">
-						<h2>Recent Writings</h2>
-						<a href="/blog" class="view-all">View all posts &rarr;</a>
-					</div>
-					<div class="blog-preview-grid">
-						{posts.map((post) => (
-							<a href={`/blog/${post.id}/`} class="post-card">
-								<div>
-									<h3>{post.data.title}</h3>
-									<p>{post.data.description}</p>
-								</div>
-								<div class="post-meta">
-									<FormattedDate date={post.data.pubDate} />
-								</div>
-							</a>
-						))}
-					</div>
-				</section>
-			)}
-
 			<section>
 				<h2>Architecture Ethos</h2>
 				<blockquote>
-					"Keep the runtime local, cut out the middle-man APIs, and eliminate brittle cloud dependencies. If a system can't run deterministic logic under stress on local hardware, it's useless."
+					"Keep the runtime local, optimize model efficiency at the edge, and eliminate brittle cloud dependencies. If an agricultural system cannot run deterministic, low-latency inference on local hardware in the field, it is not fit for production."
 				</blockquote>
 			</section>
 
@@ -205,16 +96,16 @@ const posts = (await getCollection('blog'))
 						<span class="val">ACTIVE</span>
 					</div>
 					<div class="status-line">
-						<span class="label">PRIMARY_SYSTEMS:</span>
-						<span class="val">CLICKCLACK // OVERKILL // CRYPTOSCOPE</span>
-					</div>
-					<div class="status-line">
 						<span class="label">LOCATION:</span>
-						<span class="val">Branson, MO</span>
+						<span class="val">Springfield, MO</span>
 					</div>
 					<div class="status-line">
-						<span class="label">RESEARCH_FOCUS:</span>
-						<span class="val">AGENT_STABILITY_&amp;_SINGLE_BINARY_RUNTIMES</span>
+						<span class="label">ACADEMIC_STATUS:</span>
+						<span class="val">PURSUING_BS_IN_ARTIFICIAL_INTELLIGENCE</span>
+					</div>
+					<div class="status-line">
+						<span class="label">PRIMARY_FOCUS:</span>
+						<span class="val">EFFICIENT_AI_FOR_AGRICULTURAL_AUTOMATION</span>
 					</div>
 				</div>
 			</section>

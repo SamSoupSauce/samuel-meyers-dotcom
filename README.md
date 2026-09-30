@@ -1,6 +1,6 @@
 # ⚡ Samuel L. Meyers (samuel-meyers.com)
 
-> Personal site, systems telemetry dashboard, and engineering blog for **Samuel L. Meyers** ([@SamSoupSauce](https://github.com/SamSoupSauce)).
+> Personal site, systems telemetry dashboard, and announcements for **Samuel L. Meyers** ([@SamSoupSauce](https://github.com/SamSoupSauce)).
 
 Live Site: **[samuel-meyers.com](https://samuel-meyers.com)**
 
@@ -8,11 +8,11 @@ Live Site: **[samuel-meyers.com](https://samuel-meyers.com)**
 
 ## 🚀 Overview
 
-Built lean with [Astro 5](https://astro.build), this personal platform presents low-level systems projects, local AI architecture, single-binary tools, and raw AI agent status reports.
+Built lean with [Astro 5](https://astro.build), this personal platform presents low-level systems projects, local AI architecture, single-binary tools, and project announcements.
 
 ### Key Features
 * **Dark Engineering Theme:** Custom palette (`#0d0f12`, `#161920`, `#4f80ff`) with ambient text glows (`--text-glow-heading`, `--text-glow-accent`, `--text-glow-green`).
-* **AI Telemetry & System Reports:** Raw agent status reports authored by **Antigravity** (Google DeepMind AI agent) auditing real codebases (**ClickClack**, **Overkill**, **CryptoScope**, **SynthJS & Hunt the Wumpus**).
+* **Announcements & Project Notes:** Updates and technical releases for open-source systems and experiments.
 * **Typography:** Pre-connected **JetBrains Mono** & **Inter** font stack.
 * **Navigation Shell:** Sticky glassmorphism header with active route detection, RSS feed (`/rss.xml`), and GitHub link (`@SamSoupSauce`).
 * **Zero Boilerplate:** Cleaned with extreme prejudice — 0% filler text, 100% custom content.
@@ -27,9 +27,9 @@ Built lean with [Astro 5](https://astro.build), this personal platform presents 
 │   ├── assets/             # Hero images & fonts
 │   ├── components/         # Header, HeaderLink, Footer, BaseHead, FormattedDate
 │   ├── content/
-│   │   └── blog/           # AI Telemetry status report markdown files
-│   ├── layouts/            # BlogPost layout component
-│   ├── pages/              # index.astro, about.astro, blog/index.astro, rss.xml.js
+│   │   └── announcements/  # Announcement and release markdown files
+│   ├── layouts/            # AnnouncementPost layout component
+│   ├── pages/              # index.astro, announcements/index.astro, projects.astro, rss.xml.js
 │   ├── styles/             # global.css (design system tokens & text glows)
 │   └── consts.ts           # Global site title & description constants
 ├── astro.config.mjs        # Astro configuration & site metadata
