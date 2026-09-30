@@ -5,15 +5,25 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
 
 type Props = CollectionEntry<'announcements'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, image } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, image, author, tags } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={`${title} | ${SITE_TITLE}`}
+			description={description}
+			image={heroImage || image?.url || '/og-image.png'}
+			type="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			author={author}
+			tags={tags}
+		/>
 		<style>
 			.back-link {
 				display: inline-flex;

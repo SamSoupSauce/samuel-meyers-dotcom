@@ -8,7 +8,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${SITE_TITLE} | Systems, Compute & Automation`} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={`${SITE_TITLE} | AI Models, Edge Inference & Agricultural Automation`}
+			description={SITE_DESCRIPTION}
+			image="/og-image.png"
+			type="website"
+		/>
 		<style>
 			.hero {
 				padding: 1rem 0 2rem 0;
@@ -40,6 +45,84 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				line-height: 1.7;
 				color: var(--heading);
 			}
+
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+				gap: 1.5rem;
+			}
+
+			.demo-box {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				padding: 1.25rem;
+				text-decoration: none;
+				transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+			}
+
+			.demo-box:hover {
+				border-color: var(--accent);
+				transform: translateY(-4px);
+				box-shadow: 0 8px 24px rgba(79, 128, 255, 0.25);
+				text-decoration: none;
+			}
+
+			.demo-icon-frame {
+				width: 100%;
+				aspect-ratio: 16 / 10;
+				border-radius: 6px;
+				overflow: hidden;
+				border: 1px solid var(--border);
+				background: var(--code-bg);
+			}
+
+			.demo-icon {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.3s ease;
+			}
+
+			.demo-box:hover .demo-icon {
+				transform: scale(1.04);
+			}
+
+			.demo-name {
+				margin-top: 1rem;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				font-family: var(--font-mono);
+				font-size: 1.05rem;
+				font-weight: 600;
+				color: var(--heading);
+				transition: color 0.15s ease;
+			}
+
+			.demo-box:hover .demo-name {
+				color: var(--accent);
+			}
+
+			.demo-arrow {
+				color: var(--accent);
+				transition: transform 0.2s ease;
+			}
+
+			.demo-box:hover .demo-arrow {
+				transform: translateX(3px);
+			}
+
+			@media (max-width: 600px) {
+				.demo-grid {
+					grid-template-columns: 1fr;
+				}
+			}
 		</style>
 	</head>
 	<body id="top">
@@ -58,6 +141,42 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				<p>
 					Specializing in low-level runtimes, resource-constrained model deployment, and real-time computer vision that operate reliably in demanding field conditions without depending on intermittent cloud infrastructure.
 				</p>
+			</section>
+
+			<section class="demo-section">
+				<h2>Interactive Demos</h2>
+				<div class="demo-grid">
+					<a
+						href="https://samsoupsauce.github.io/card-engine/"
+						target="_blank"
+						rel="noopener"
+						class="demo-box"
+						title="Launch Card Game Engine Live Demo"
+					>
+						<div class="demo-icon-frame">
+							<img src="/card-game.svg" alt="Card Game Engine" class="demo-icon" width="800" height="500" />
+						</div>
+						<div class="demo-name">
+							<span>Card Game Engine</span>
+							<span class="demo-arrow">&rarr;</span>
+						</div>
+					</a>
+					<a
+						href="https://samsoupsauce.github.io/undoku/"
+						target="_blank"
+						rel="noopener"
+						class="demo-box"
+						title="Launch Undoku Live Demo"
+					>
+						<div class="demo-icon-frame">
+							<img src="/undoku.svg" alt="Undoku" class="demo-icon" width="800" height="500" />
+						</div>
+						<div class="demo-name">
+							<span>Undoku</span>
+							<span class="demo-arrow">&rarr;</span>
+						</div>
+					</a>
+				</div>
 			</section>
 
 			<section>

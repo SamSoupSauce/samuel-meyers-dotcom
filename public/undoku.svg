@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="skyGrad" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="42%" stop-color="#090d16" />
+      <stop offset="85%" stop-color="#04060a" />
+      <stop offset="100%" stop-color="#010204" />
+    </radialGradient>
+
+    <!-- Board Core Glow Filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="18" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Subtle Drop Shadow for 3D Board and Cubes -->
+    <filter id="slabShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.85" />
+    </filter>
+
+    <!-- Cube Face Gradient -->
+    <linearGradient id="cubeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151e33" />
+      <stop offset="100%" stop-color="#0b101c" />
+    </linearGradient>
+
+    <!-- Laser Beam Gradient -->
+    <linearGradient id="laserCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Obsidian Background -->
+  <rect width="800" height="500" fill="url(#skyGrad)" />
+
+  <!-- Inset Border with Cyber Corners -->
+  <rect x="18" y="18" width="764" height="464" rx="12" fill="none" stroke="#1e293b" stroke-width="1.2" opacity="0.45" />
+  <rect x="22" y="22" width="756" height="456" rx="10" fill="none" stroke="#06b6d4" stroke-width="0.8" opacity="0.2" stroke-dasharray="8 6" />
+
+  <!-- Perspective Floor Grid Rungs -->
+  <g opacity="0.18" stroke="#334155" stroke-width="1">
+    <line x1="80" y1="500" x2="400" y2="340" />
+    <line x1="220" y1="500" x2="400" y2="340" />
+    <line x1="580" y1="500" x2="400" y2="340" />
+    <line x1="720" y1="500" x2="400" y2="340" />
+    <line x1="0" y1="410" x2="800" y2="410" stroke-dasharray="4 6" />
+    <line x1="0" y1="455" x2="800" y2="455" />
+  </g>
+
+  <!-- Ambient Energy Glow behind Board -->
+  <circle cx="400" cy="245" r="160" fill="#06b6d4" opacity="0.14" filter="url(#neonGlow)" />
+  <circle cx="400" cy="245" r="100" fill="#6366f1" opacity="0.16" filter="url(#neonGlow)" />
+
+  <!-- Central Isometric 3D Sudoku Monolith -->
+  <g transform="translate(400, 248)" filter="url(#slabShadow)">
+    
+    <!-- 3D Extruded Slab Sides (Drop of 28px) -->
+    <!-- Left Face -->
+    <path d="M 0 0 L -212.13 -122.47 L -212.13 -94.47 L 0 28 Z" fill="#0b101c" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.4" />
+    <!-- Right Face -->
+    <path d="M 0 0 L 212.13 -122.47 L 212.13 -94.47 L 0 28 Z" fill="#111827" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.4" />
+
+    <!-- Top Isometric Plane: 300x300 rotated 45 deg, squashed vertically by 0.577 -->
+    <g transform="scale(1, 0.5774) rotate(45)">
+      
+      <!-- Base Board Slab -->
+      <rect x="-150" y="-150" width="300" height="300" rx="20" fill="#060911" stroke="#06b6d4" stroke-width="2.5" />
+
+      <!-- Inner Thin Cell Grid -->
+      <g stroke="#1e293b" stroke-width="1.2" opacity="0.75">
+        <line x1="-150" y1="-100" x2="150" y2="-100" stroke-dasharray="3 3" />
+        <line x1="-150" y1="0" x2="150" y2="0" stroke-dasharray="3 3" />
+        <line x1="-150" y1="100" x2="150" y2="100" stroke-dasharray="3 3" />
+        <line x1="-100" y1="-150" x2="-100" y2="150" stroke-dasharray="3 3" />
+        <line x1="0" y1="-150" x2="0" y2="150" stroke-dasharray="3 3" />
+        <line x1="100" y1="-150" x2="100" y2="150" stroke-dasharray="3 3" />
+
+        <line x1="-150" y1="-66.6" x2="150" y2="-66.6" stroke-dasharray="2 4" />
+        <line x1="-150" y1="-33.3" x2="150" y2="-33.3" stroke-dasharray="2 4" />
+        <line x1="-150" y1="33.3" x2="150" y2="33.3" stroke-dasharray="2 4" />
+        <line x1="-150" y1="66.6" x2="150" y2="66.6" stroke-dasharray="2 4" />
+        <line x1="-150" y1="133.3" x2="150" y2="133.3" stroke-dasharray="2 4" />
+        <line x1="-150" y1="-133.3" x2="150" y2="-133.3" stroke-dasharray="2 4" />
+
+        <line x1="-66.6" y1="-150" x2="-66.6" y2="150" stroke-dasharray="2 4" />
+        <line x1="-33.3" y1="-150" x2="-33.3" y2="150" stroke-dasharray="2 4" />
+        <line x1="33.3" y1="-150" x2="33.3" y2="150" stroke-dasharray="2 4" />
+        <line x1="66.6" y1="-150" x2="66.6" y2="150" stroke-dasharray="2 4" />
+        <line x1="133.3" y1="-150" x2="133.3" y2="150" stroke-dasharray="2 4" />
+        <line x1="-133.3" y1="-150" x2="-133.3" y2="150" stroke-dasharray="2 4" />
+      </g>
+
+      <!-- Bold 3x3 Region Dividers -->
+      <g stroke="#06b6d4" stroke-width="2.5" opacity="0.85">
+        <line x1="-150" y1="-50" x2="150" y2="-50" />
+        <line x1="-150" y1="50" x2="150" y2="50" />
+        <line x1="-50" y1="-150" x2="-50" y2="150" />
+        <line x1="50" y1="-150" x2="50" y2="150" />
+      </g>
+
+      <!-- Highlighted Logical Deduction Focus Cell (Center Box) -->
+      <rect x="-16.6" y="-16.6" width="33.3" height="33.3" rx="6" fill="#06b6d4" fill-opacity="0.35" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="0" r="6" fill="#ffffff" filter="url(#neonGlow)" />
+
+      <!-- Highlighted Secondary Chain Cells -->
+      <rect x="-83.3" y="-16.6" width="33.3" height="33.3" rx="6" fill="#6366f1" fill-opacity="0.2" stroke="#818cf8" stroke-width="1.2" />
+      <rect x="50" y="-83.3" width="33.3" height="33.3" rx="6" fill="#6366f1" fill-opacity="0.2" stroke="#818cf8" stroke-width="1.2" />
+
+      <!-- Fixed Clue & Solved Digits -->
+      <g font-family="'Fira Code', ui-monospace, SFMono-Regular, monospace" font-size="19" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#38bdf8">
+        <!-- Top Row & Regions -->
+        <text x="-133.3" y="-133.3">5</text>
+        <text x="-100" y="-133.3">3</text>
+        <text x="100" y="-133.3">7</text>
+        <text x="-133.3" y="-100">6</text>
+        <text x="0" y="-100">1</text>
+        <text x="66.6" y="-100">9</text>
+        <text x="133.3" y="-100">5</text>
+
+        <!-- Middle Rows -->
+        <text x="-100" y="-66.6">9</text>
+        <text x="-66.6" y="-66.6">8</text>
+        <text x="66.6" y="-66.6">6</text>
+
+        <text x="-133.3" y="0">8</text>
+        <text x="0" y="0" fill="#ffffff" font-size="21">4</text>
+        <text x="133.3" y="0">7</text>
+
+        <text x="-66.6" y="66.6">6</text>
+        <text x="66.6" y="66.6">2</text>
+        <text x="100" y="66.6">8</text>
+
+        <!-- Bottom Rows -->
+        <text x="-133.3" y="100">4</text>
+        <text x="-66.6" y="100">1</text>
+        <text x="0" y="100">9</text>
+        <text x="133.3" y="100">8</text>
+        <text x="-100" y="133.3">2</text>
+        <text x="0" y="133.3">8</text>
+        <text x="66.6" y="133.3">5</text>
+        <text x="100" y="133.3">7</text>
+      </g>
+
+    </g>
+  </g>
+
+  <!-- Laser Deduction Constraint Lines -->
+  <g opacity="0.75">
+    <path d="M 400 248 Q 540 180 610 205" stroke="#06b6d4" stroke-width="2" fill="none" stroke-dasharray="5 6" />
+    <path d="M 400 248 Q 280 170 210 190" stroke="#6366f1" stroke-width="1.8" fill="none" stroke-dasharray="4 5" />
+    <path d="M 400 248 Q 490 330 570 320" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-dasharray="5 5" />
+  </g>
+
+  <!-- Floating 3D Quantum Number Cubes -->
+  <!-- Cube 1: Top-Right (Digit 7) -->
+  <g transform="translate(615, 200) rotate(16)" filter="url(#slabShadow)">
+    <rect x="-24" y="-24" width="48" height="48" rx="10" fill="url(#cubeGrad)" stroke="#06b6d4" stroke-width="2" />
+    <circle cx="14" cy="-14" r="3.5" fill="#06b6d4" />
+    <text x="0" y="2" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="24" font-weight="800" text-anchor="middle" dominant-baseline="central">7</text>
+  </g>
+
+  <!-- Cube 2: Top-Left (Digit 9) -->
+  <g transform="translate(195, 185) rotate(-22)" filter="url(#slabShadow)">
+    <rect x="-22" y="-22" width="44" height="44" rx="9" fill="url(#cubeGrad)" stroke="#6366f1" stroke-width="1.8" />
+    <circle cx="12" cy="-12" r="3" fill="#818cf8" />
+    <text x="0" y="2" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="22" font-weight="800" text-anchor="middle" dominant-baseline="central">9</text>
+  </g>
+
+  <!-- Cube 3: Bottom-Right (Digit 3) -->
+  <g transform="translate(580, 325) rotate(-14)" filter="url(#slabShadow)">
+    <rect x="-20" y="-20" width="40" height="40" rx="8" fill="url(#cubeGrad)" stroke="#06b6d4" stroke-width="1.8" />
+    <circle cx="11" cy="-11" r="2.8" fill="#06b6d4" />
+    <text x="0" y="2" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="20" font-weight="800" text-anchor="middle" dominant-baseline="central">3</text>
+  </g>
+
+  <!-- Cube 4: Bottom-Left (Digit 8) -->
+  <g transform="translate(230, 315) rotate(20)" filter="url(#slabShadow)">
+    <rect x="-18" y="-18" width="36" height="36" rx="8" fill="url(#cubeGrad)" stroke="#6366f1" stroke-width="1.5" />
+    <circle cx="10" cy="-10" r="2.5" fill="#818cf8" />
+    <text x="0" y="2" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="18" font-weight="800" text-anchor="middle" dominant-baseline="central">8</text>
+  </g>
+
+  <!-- Particle Dust / Quantum Stars -->
+  <g fill="#06b6d4" opacity="0.5">
+    <circle cx="140" cy="110" r="1.5" />
+    <circle cx="680" cy="120" r="1.5" />
+    <circle cx="110" cy="270" r="1.8" />
+    <circle cx="710" cy="260" r="1.8" />
+    <circle cx="170" cy="400" r="1.2" />
+    <circle cx="650" cy="390" r="1.4" />
+    <circle cx="310" cy="90" r="1.2" fill="#ffffff" opacity="0.6" />
+    <circle cx="490" cy="85" r="1.5" fill="#ffffff" opacity="0.7" />
+  </g>
+
+  <!-- Technical Telemetry Labels -->
+  <g font-family="'Fira Code', monospace" font-size="10.5" fill="#06b6d4" opacity="0.55" letter-spacing="1">
+    <text x="36" y="450">UNDOKU :: 9×9 COGNITIVE ENGINE</text>
+    <text x="590" y="450">FAST_PRNG :: DETERMINISTIC</text>
+  </g>
+</svg>

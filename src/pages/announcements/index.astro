@@ -15,7 +15,13 @@ const posts = (await getCollection('announcements')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Announcements | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={`Announcements & Release Notes | ${SITE_TITLE}`}
+			description="Official announcements, technical releases, software framework updates, and research notes from Samuel L. Meyers."
+			image="/og-image.png"
+			type="website"
+			keywords={["Samuel L. Meyers Announcements", "Software Releases", "AI Research", "Agricultural Automation Notes"]}
+		/>
 		<style>
 			.page-header {
 				margin-bottom: 2.5rem;
